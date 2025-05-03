@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Mammography AI</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #002349;
+            color: white;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        h1:after {
+            content: '';
+            position: absolute;
+            width: 50%;
+            height: 3px;
+            background-color: #4a90e2;
+            bottom: -10px;
+            left: 25%;
+        }
+        
+        .intro {
+            text-align: center;
+            font-size: 1.2rem;
+            margin-bottom: 50px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .section-title {
+            font-size: 1.8rem;
+            margin-bottom: 30px;
+            text-align: center;
+            position: relative;
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            width: 100px;
+            height: 3px;
+            background-color: #4a90e2;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .team-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+        
+        .team-member {
+            background-color: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            padding: 30px;
+            width: 300px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .team-member:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+        }
+        
+        .member-name {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: #4a90e2;
+        }
+        
+        .member-role {
+            font-weight: bold;
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+        
+        .member-info {
+            margin-bottom: 8px;
+        }
+        
+        .member-info i {
+            margin-right: 10px;
+            color: #4a90e2;
+        }
+        
+        .vision {
+            background-color: rgba(255, 255, 255, 0.05);
+            padding: 40px;
+            border-radius: 10px;
+            margin-bottom: 50px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .vision p {
+            font-size: 1.1rem;
+            text-align: center;
+        }
+        
+        .contact {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .footer-quote {
+            text-align: center;
+            font-style: italic;
+            font-size: 1.2rem;
+            color: #4a90e2;
+        }
+        
+        a {
+            color: #4a90e2;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        a:hover {
+            color: #2a70c2;
+            text-decoration: underline;
+        }
+        
+        .divider {
+            height: 1px;
+            background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.5), transparent);
+            margin: 40px 0;
+        }
+        
+        /* Added some icon styling */
+        .icon {
+            display: inline-block;
+            width: 24px;
+            text-align: center;
+            color: #4a90e2;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>About Us</h1>
+        </header>
+        
+        <div class="intro">
+            <p>Welcome to Mammography AI, a project dedicated to early detection of breast cancer using advanced image processing and AI technologies. Our mission is to provide an accessible, AI-powered solution for analyzing mammograms and assisting in early diagnosis, potentially saving lives through timely intervention.</p>
+        </div>
+        
+        <div class="divider"></div>
+        
+        <h2 class="section-title">Meet Our Team</h2>
+        
+        <div class="team-container">
+            <div class="team-member">
+                <h3 class="member-name">Rankit Das</h3>
+                <p class="member-role">Backend Developer</p>
+                <p class="member-info"><span class="icon">📌</span> Responsible for designing and implementing the backend architecture, ensuring smooth API integrations, and managing the core AI functionalities.</p>
+                <p class="member-info"><span class="icon">🎓</span> 2nd-year B.Tech student in Computer Science & Engineering at Government College of Engineering and Textile Technology, Berhampore (GCETTB).</p>
+                <p class="member-info"><span class="icon">📩</span> <a href="mailto:dasrankit2018@gmail.com">dasrankit2018@gmail.com</a></p>
+                <p class="member-info"><span class="icon">🔗</span> <a href="https://www.linkedin.com/in/rankit-das-350a1b226" target="_blank">Rankit Das</a></p>
+            </div>
+            
+            <div class="team-member">
+                <h3 class="member-name">Himanshu Mallick</h3>
+                <p class="member-role">Frontend Developer (UI/UX)</p>
+                <p class="member-info"><span class="icon">📌</span> Specializes in designing and developing the user interface, ensuring a seamless and intuitive user experience.</p>
+                <p class="member-info"><span class="icon">🎓</span> 2nd-year B.Tech student in Computer Science & Engineering at Government College of Engineering and Textile Technology, Berhampore (GCETTB).</p>
+                <p class="member-info"><span class="icon">📩</span> <a href="mailto:mallickhimanshu1850@gmail.com">mallickhimanshu1850@gmail.com</a></p>
+                <p class="member-info"><span class="icon">🔗</span> <a href="https://www.linkedin.com/in/himanshu-mallick-2386872a5?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank">Himanshu Mallick</a></p>
+            </div>
+
+            <div class="team-member">
+                <h3 class="member-name">Dr. Debaroti Bhar</h3>
+                <p class="member-role">Department of Endocrinology
+                    R.G.Kar Medical College</p>
+                <p class="member-info"><span class="icon">📌</span>MBBS, MD (General Medicine), DM (Endocrinology)
+                    19 Years of Experience
+                    Certified Endocrinologist</p>
+                <p class="member-info"><span class="icon">🎓</span>R.G.Kar Medical College.</p>
+                <p class="member-info"><span class="icon">📩</span> <a href="mailto:drdb2009@gmail.com">drdb2009@gmail.com</a></p>
+                <p class="member-info"><span class="icon">🔗</span> <a
+                        href="https://www.linkedin.com/in/himanshu-mallick-2386872a5?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+                        target="_blank">Dr. Debaroti Bhar</a></p>
+            </div>
+        </div>
+        
+        <div class="divider"></div>
+        
+        <h2 class="section-title">Our Vision</h2>
+        
+        <div class="vision">
+            <p>We believe that technology should empower healthcare. By integrating AI into mammogram analysis, we aim to assist medical professionals and individuals in detecting abnormalities early, leading to better treatment outcomes.</p>
+        </div>
+        
+        <div class="contact">
+            <p>For any inquiries, collaborations, or feedback, feel free to reach out to us.</p>
+        </div>
+        
+        <p class="footer-quote">🚀 Together, we innovate for a healthier future.</p>
+    </div>
+</body>
+</html>

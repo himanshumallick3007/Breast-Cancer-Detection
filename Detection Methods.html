@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Breast Cancer Detection</title>
+    <script src="./detection.js" defer></script>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #002349;
+            color: #333;
+            line-height: 1.6;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 650px;
+            margin: 40px auto;
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 6px;
+            background: linear-gradient(to right, #4a90e2, #63b3ed);
+        }
+
+        h2 {
+            color: #002349;
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 2rem;
+            position: relative;
+        }
+
+        h2:after {
+            content: '';
+            position: absolute;
+            width: 60px;
+            height: 3px;
+            background-color: #4a90e2;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        p.intro {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #555;
+            font-size: 1.1rem;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #002349;
+        }
+
+        input[type="text"],
+        input[type="number"] {
+            width: 100%;
+            padding: 12px 15px;
+            font-size: 1rem;
+            margin-top: 5px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            box-sizing: border-box;
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+
+        input[type="text"]:focus,
+        input[type="number"]:focus {
+            border-color: #4a90e2;
+            box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.2);
+            outline: none;
+        }
+
+        input[type="file"] {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            background-color: #f7f9fc;
+            border: 2px dashed #c3d1e6;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: border-color 0.3s, background-color 0.3s;
+        }
+
+        input[type="file"]:hover {
+            background-color: #eef2fa;
+            border-color: #4a90e2;
+        }
+
+        .file-upload-container {
+            position: relative;
+            margin-top: 5px;
+        }
+
+        .file-instructions {
+            font-size: 0.85rem;
+            color: #666;
+            margin-top: 5px;
+            font-style: italic;
+        }
+
+        button {
+            width: 100%;
+            padding: 14px;
+            background: linear-gradient(to right, #4a90e2, #63b3ed);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 1.1rem;
+            font-weight: 600;
+            transition: transform 0.2s, box-shadow 0.2s;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background: linear-gradient(to right, #3a80d2, #52a3dd);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        button:active {
+            transform: translateY(0);
+        }
+
+        .required-field::after {
+            content: " *";
+            color: #e74c3c;
+        }
+
+        .form-footer {
+            text-align: center;
+            margin-top: 25px;
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        @media (max-width: 700px) {
+            .container {
+                margin: 20px;
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h2>Breast Cancer Detection</h2>
+        <p class="intro">Submit your mammography report for AI-powered analysis to assist in early detection.</p>
+
+        <form id="detection-form">
+            <div class="form-group">
+                <label for="patient-name" class="required-field">Patient Name</label>
+                <input type="text" id="patient-name" name="patient_name" required placeholder="Enter full name">
+            </div>
+
+            <div class="form-group">
+                <label for="patient-age" class="required-field">Patient Age</label>
+                <input type="number" id="patient-age" name="patient_age" required placeholder="Enter age in years">
+            </div>
+
+            <div class="form-group">
+                <label for="diagnostic-mammograph" class="required-field">Diagnostic Mammograph</label>
+                <div class="file-upload-container">
+                    <input type="file" id="diagnostic-mammograph" name="diagnostic_mammograph" accept="image/*, .pdf"
+                        required>
+                    <p class="file-instructions">Upload a clear image or PDF of your Diagnostic Mammograph Report *(Mandatory)</p>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="mri" class="required-field">MRI Report</label>
+                <div class="file-upload-container">
+                    <input type="file" id="mri" name="mri" accept="image/*, .pdf" required>
+                    <p class="file-instructions">Upload a clear image or PDF of your MRI report *(Mandatory).</p>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="biopsy" class="required-field">Breast Biopsy Report</label>
+                <div class="file-upload-container">
+                    <input type="file" id="biopsy" name="biopsy" accept="image/*, .pdf" required>
+                    <p class="file-instructions">Upload Biopsy Test Results if Available (Image or PDF).</p>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="ct-scan" class="required-field">CT Scan Report</label>
+                <div class="file-upload-container">
+                    <input type="file" id="ct-scan" name="ct_scan" accept="image/*, .pdf" required>
+                    <p class="file-instructions">Upload CT Scan test Results if Available(Image or PDF).</p>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="hormone-test">Hormone Receptor Test (Optional)</label>
+                <div class="file-upload-container">
+                    <input type="file" id="hormone-test" name="hormone_test" accept="image/*, .pdf">
+                    <p class="file-instructions">Optional: Upload hormone receptor test results if available.</p>
+                </div>
+            </div>
+
+            <button type="submit">Submit for Analysis</button>
+        </form>
+
+        <div class="form-footer">
+            Your Data is kept secure and confidential. Results are for screening purposes only and should be reviewed by
+            a Healthcare Professional.
+        </div>
+    </div>
+</body>
+
+</html>

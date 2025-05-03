@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BCD Health - Early Breast Cancer Detection</title>
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f8f9fa;
+            color: #333;
+            line-height: 1.6;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4edf5 100%);
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: #fff;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo-img {
+            height: 50px;
+            margin-right: 10px;
+        }
+        
+        .logo-text {
+            font-size: 24px;
+            font-weight: 700;
+            color: #e83e8c;
+        }
+        
+        /* Navigation Styles */
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin: 0 15px;
+        }
+        
+        .nav-links a {
+            color: #555;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 16px;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+        
+        .nav-links a:hover {
+            color: #e83e8c;
+        }
+        
+        .nav-links a:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: #e83e8c;
+            left: 0;
+            bottom: -5px;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-links a:hover:after {
+            width: 100%;
+        }
+        
+        /* Button Styles */
+        .btn {
+            background-color: #e83e8c;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: inline-block;
+            border: 2px solid #e83e8c;
+        }
+        
+        .btn:hover {
+            background-color: #fff;
+            color: #e83e8c;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(232, 62, 140, 0.3);
+        }
+        
+        /* Home Main Content Styles */
+        .main-content {
+            padding: 80px 0;
+        }
+        
+        .home-section {
+            max-width: 900px;
+            margin: 0 auto 60px;
+            background-color: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            padding: 0;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+        
+        .home-section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(232, 62, 140, 0.15);
+        }
+        
+        .home-header {
+            background: linear-gradient(120deg, #e83e8c, #9955bb);
+            padding: 35px 20px;
+            color: white;
+        }
+        
+        .home-header h1 {
+            font-size: 38px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        
+        .home-header p {
+            font-size: 18px;
+            opacity: 0.9;
+        }
+        
+        .home-body {
+            padding: 40px;
+        }
+        
+        .info-card {
+            background-color: #f9f9f9;
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 30px;
+            text-align: left;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+            border-left: 4px solid #e83e8c;
+        }
+        
+        .highlight {
+            color: #e83e8c;
+            font-weight: 600;
+        }
+        
+        .accuracy-display {
+            background: linear-gradient(135deg, #e83e8c, #9955bb);
+            color: white;
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin: 20px auto 30px;
+            box-shadow: 0 5px 15px rgba(232, 62, 140, 0.3);
+        }
+        
+        .accuracy-display .number {
+            font-size: 36px;
+            font-weight: 700;
+            line-height: 1;
+        }
+        
+        .accuracy-display .label {
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .team-info {
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 1px solid #eee;
+        }
+        
+        .cta-button {
+            margin-top: 30px;
+        }
+        
+        .cta-primary {
+            background: linear-gradient(120deg, #e83e8c, #9955bb);
+            color: white;
+            padding: 14px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 18px;
+            display: inline-block;
+            border: none;
+            box-shadow: 0 5px 15px rgba(232, 62, 140, 0.3);
+            transition: all 0.3s ease;
+        }
+        
+        .cta-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(232, 62, 140, 0.4);
+        }
+        
+        /* Feature Icons */
+        .features-row {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin: 40px 0;
+        }
+        
+        .feature-item {
+            flex: 0 0 calc(33.33% - 30px);
+            min-width: 200px;
+            text-align: center;
+        }
+        
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 15px;
+            background-color: rgba(232, 62, 140, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            color: #e83e8c;
+        }
+        
+        .feature-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: #333;
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .home-header h1 {
+                font-size: 32px;
+            }
+            
+            .home-body {
+                padding: 30px 20px;
+            }
+            
+            .features-row {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .feature-item {
+                width: 100%;
+                margin-bottom: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header>
+        <div class="container">
+            <!-- Logo -->
+            <div class="logo">
+                <img src="https://clipart-library.com/new_gallery/53-530225_medical-symbol-png-doctor-symbol-png.png" alt="Breast Cancer Detection Logo" class="logo-img">
+                <div class="logo-text">BCD Health</div>
+            </div>
+            
+            <!-- Navigation Bar -->
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="./Home.html">Home</a></li>
+                    <li><a href="./About Us.html">About Us</a></li>
+                    <li><a href="./Resources.html">How To Use</a></li>
+                    <li><a href="./contact&Support.html">Contact & Support</a></li>
+                    <li><a href="./Consult a Doctor.html">Consult Doctor</a></li>
+                </ul>
+            </nav>
+            
+            <!-- Call-to-Action Button -->
+            <div class="cta-button">
+                <a href="./Detection Methods.html" class="btn">Start Check Process</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <!-- Home Section -->
+            <section class="home-section">
+                <div class="home-header">
+                    <h1>AI-Powered Breast Cancer Detection</h1>
+                    <p>Early detection saves lives – Know your risk factors with advanced technology</p>
+                </div>
+                
+                <div class="home-body">
+                    <div class="accuracy-display">
+                        <div class="number">86%</div>
+                        <div class="label">Accuracy</div>
+                    </div>
+                    
+                    <div class="info-card">
+                        <p>Our initiative focuses on the early detection of breast cancer through advanced <span class="highlight">AI-based mammography analysis</span>. By simply scanning a mammogram report, our system can identify potential abnormalities with an accuracy level matching manual inspection methods.</p>
+                    </div>
+                    
+                    <div class="features-row">
+                        <div class="feature-item">
+                            <div class="feature-icon">🔍</div>
+                            <div class="feature-title">AI Analysis</div>
+                            <p>Advanced algorithms trained on real patient data</p>
+                        </div>
+                        
+                        <div class="feature-item">
+                            <div class="feature-icon">📊</div>
+                            <div class="feature-title">Pattern Detection</div>
+                            <p>Identifies potential abnormalities in mammograms</p>
+                        </div>
+                        
+                        <div class="feature-item">
+                            <div class="feature-icon">👩‍⚕</div>
+                            <div class="feature-title">Expert Connection</div>
+                            <p>Links to qualified healthcare professionals</p>
+                        </div>
+                    </div>
+                    
+                    <p>Our AI model has been trained using real patient data, learning patterns of abnormalities and comparing new user reports with pre-programmed medical data for accurate analysis. This not only improves diagnostic efficiency but also reduces unnecessary exposure to X-rays, helping detect potential risks at an early stage.</p>
+                    
+                    <p>Future updates will expand our capabilities to analyze other medical reports as well. Additionally, our platform connects users with the best doctors for expert guidance and more detailed treatment plans.</p>
+                    
+                    <div class="team-info">
+                        <p><strong>For more details, contact:</strong></p>
+                        <p>Rankit Das, Himanshu Mallick</p>
+                        <p><em>mallickhimanshu1850@gmail.com</em></p>
+                    </div>
+                    
+                    <div class="cta-button">
+                        <a href="./Detection Methods.html" class="cta-primary">Begin Your Screening Process</a>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+</body>
+</html>

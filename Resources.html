@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consult Doctors</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;   
+            margin: 0;
+            padding: 0;
+            background-color: #002349;
+            color: #333;
+        }
+        .container {
+            max-width: 900px;
+            margin: 50px auto;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            text-align: center;
+            color: #007BFF;
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+        h3 {
+            color: #0056b3;
+            border-left: 4px solid #007BFF;
+            padding-left: 10px;
+            margin-top: 25px;
+            font-size: 22px;
+        }
+        p, ul {
+            line-height: 1.7;
+            color: #555;
+        }
+        ul {
+            padding-left: 20px;
+        }
+        .doctor-card {
+            display: flex;
+            background: #f8f9fa;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        .doctor-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        .doctor-img {
+            width: 120px;
+            height: 120px;
+            background-color: #e9f5ff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 40px;
+            color: #007BFF;
+        }
+        .doctor-info {
+            padding: 15px;
+            flex-grow: 1;
+        }
+        .doctor-name {
+            font-weight: bold;
+            color: #0056b3;
+            margin: 0 0 5px 0;
+            font-size: 18px;
+        }
+        .doctor-specialty {
+            color: #007BFF;
+            margin: 0 0 10px 0;
+            font-size: 14px;
+        }
+        .doctor-bio {
+            margin: 0;
+            font-size: 14px;
+        }
+        .btn {
+            display: inline-block;
+            padding: 10px 15px;
+            margin-top: 10px;
+            background: #007BFF;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: 0.3s;
+            font-weight: bold;
+        }
+        .btn:hover {
+            background: #0056b3;
+        }
+        .btn-secondary {
+            background: #6c757d;
+        }
+        .btn-secondary:hover {
+            background: #5a6268;
+        }
+        .appointment-form {
+            background: #e9f5ff;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 30px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #333;
+        }
+        .form-group input, .form-group select, .form-group textarea {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        .form-group textarea {
+            height: 100px;
+            resize: vertical;
+        }
+        .navigation {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #e9e9e9;
+        }
+        .info-box {
+            background: #e3f2fd;
+            padding: 15px;
+            border-left: 4px solid #007BFF;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        .info-box h4 {
+            margin-top: 0;
+            color: #0056b3;
+        }
+        .highlight {
+            background-color: #fffde7;
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-weight: bold;
+            color: #ff6f00;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>👨‍⚕ Consult with Specialists</h2>
+        
+        <div class="info-box">
+            <h4>Why Consult a Specialist?</h4>
+            <p>Our AI tool provides an initial assessment, but a <span class="highlight">medical professional's expertise</span> is essential for accurate diagnosis and treatment planning. Early consultation can significantly improve outcomes for breast cancer patients.</p>
+        </div>
+
+        <h3>🩺 Our Specialist Network</h3>
+        
+        <div class="doctor-card">
+            <div class="doctor-img">👩‍⚕</div>
+            <div class="doctor-info">
+                <h4 class="doctor-name">Dr. Sarah Johnson</h4>
+                <p class="doctor-specialty">Oncology Specialist | 15+ years experience</p>
+                <p class="doctor-bio">Dr. Johnson specializes in breast cancer diagnosis and treatment. Board-certified with expertise in minimally invasive procedures and personalized treatment plans.</p>
+                <a href="#appointment" class="btn">Schedule Consultation</a>
+            </div>
+        </div>
+        
+        <div class="doctor-card">
+            <div class="doctor-img">👨‍⚕</div>
+            <div class="doctor-info">
+                <h4 class="doctor-name">Dr. Michael Chen</h4>
+                <p class="doctor-specialty">Radiologist | 12+ years experience</p>
+                <p class="doctor-bio">Specialized in breast imaging and interpretation of mammograms, ultrasounds, and MRIs. Expert in early detection techniques for breast abnormalities.</p>
+                <a href="#appointment" class="btn">Schedule Consultation</a>
+            </div>
+        </div>
+        
+        <div class="doctor-card">
+            <div class="doctor-img">👩‍⚕</div>
+            <div class="doctor-info">
+                <h4 class="doctor-name">Dr. Emily Rodriguez</h4>
+                <p class="doctor-specialty">Surgical Oncologist | 18+ years experience</p>
+                <p class="doctor-bio">Specializes in breast-conserving surgeries and advanced reconstructive techniques. Committed to providing compassionate care with excellent clinical outcomes.</p>
+                <a href="#appointment" class="btn">Schedule Consultation</a>
+            </div>
+        </div>
+
+        <h3>🗓 How It Works</h3>
+        <ul>
+            <li><strong>Step 1:</strong> Review your AI assessment results</li>
+            <li><strong>Step 2:</strong> Select a specialist from our network</li>
+            <li><strong>Step 3:</strong> Schedule a consultation (virtual or in-person)</li>
+            <li><strong>Step 4:</strong> Share your reports and AI assessment during consultation</li>
+            <li><strong>Step 5:</strong> Receive professional diagnosis and treatment recommendations</li>
+        </ul>
+
+        <h3 id="appointment">📅 Request an Appointment</h3>
+        <div class="appointment-form">
+            <form>
+                <div class="form-group">
+                    <label for="patient-name">Full Name:</label>
+                    <input type="text" id="patient-name" placeholder="Enter your full name">
+                </div>
+                
+                <div class="form-group">
+                    <label for="patient-email">Email Address:</label>
+                    <input type="email" id="patient-email" placeholder="Enter your email">
+                </div>
+                
+                <div class="form-group">
+                    <label for="patient-phone">Phone Number:</label>
+                    <input type="tel" id="patient-phone" placeholder="Enter your phone number">
+                </div>
+                
+                <div class="form-group">
+                    <label for="doctor">Preferred Specialist:</label>
+                    <select id="doctor">
+                        <option value="" disabled selected>Select a specialist</option>
+                        <option value="dr-johnson">Dr. Sarah Johnson (Oncology)</option>
+                        <option value="dr-chen">Dr. Michael Chen (Radiology)</option>
+                        <option value="dr-rodriguez">Dr. Emily Rodriguez (Surgical Oncology)</option>
+                        <option value="any">Any Available Specialist</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="appointment-type">Consultation Type:</label>
+                    <select id="appointment-type">
+                        <option value="" disabled selected>Select consultation type</option>
+                        <option value="virtual">Virtual Consultation</option>
+                        <option value="in-person">In-Person Appointment</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="preferred-date">Preferred Date:</label>
+                    <input type="date" id="preferred-date">
+                </div>
+                
+                <div class="form-group">
+                    <label for="message">Additional Information:</label>
+                    <textarea id="message" placeholder="Please include any relevant information about your condition, test results, or specific concerns..."></textarea>
+                </div>
+                
+                <button type="submit" class="btn">Submit Request</button>
+            </form>
+        </div>
+
+        <h3>⚕ Urgent Concerns?</h3>
+        <p>If you have received a high-risk assessment and need immediate consultation, please call our priority hotline at <strong>(555) 123-4567</strong>. Our care coordinators are available 24/7 to connect you with specialists.</p>
+
+        <div class="navigation">
+            <a href="#" class="btn btn-secondary">← Back to Detection Tool</a>
+            <a href="./contact&Support.html" class="btn">Support & Documentation →</a>
+        </div>
+    </div>
+
+</body>
+</html>
